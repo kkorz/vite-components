@@ -1,7 +1,7 @@
-import React from "react";
+import { ReactNode } from "react";
 
 interface Iprops {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 function ContentComponent({ children }: Iprops) {

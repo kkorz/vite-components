@@ -1,7 +1,20 @@
-import Layout from "./pages/layout";
+import { BrowserRouter, useRoutes } from "react-router-dom";
+import routes from "@/routes";
+import Layout from "@/layout";
+
+function RouteElement() {
+  const element = useRoutes(routes);
+  return element;
+}
 
 function App() {
-  return <Layout />;
+  return (
+    <BrowserRouter>
+      <Layout>
+        <RouteElement />
+      </Layout>
+    </BrowserRouter>
+  );
 }
 
 export default App;
