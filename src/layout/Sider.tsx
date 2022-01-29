@@ -1,11 +1,17 @@
 import { Menu } from "@arco-design/web-react";
 import { IconSun, IconThumbUp } from "@arco-design/web-react/icon";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
 function SiderComponent() {
+  const navigate = useNavigate();
+
+  const linkToPage = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <div className="slider-component">
       <Menu
@@ -13,26 +19,25 @@ function SiderComponent() {
         hasCollapseButton
         // defaultOpenKeys={["/"]}
         defaultSelectedKeys={["/"]}
+        onClickMenuItem={linkToPage}
       >
-        <MenuItem key="/">
-          <Link to="/">Welcome</Link>
-        </MenuItem>
+        <MenuItem key="/">Welcome</MenuItem>
 
         <SubMenu key="/festival" title="节日">
           <MenuItem key="/festival/newyear">
             <IconSun />
-            <Link to="/festival/newyear">春节</Link>
+            春节
           </MenuItem>
           <MenuItem key="/festival/midautumn">
             <IconSun />
-            <Link to="/festival/midautumn">中秋</Link>
+            中秋
           </MenuItem>
         </SubMenu>
 
         <SubMenu key="/components" title="组件">
           <MenuItem key="/components/button">
             <IconThumbUp />
-            <Link to="/components/button">按钮 Button</Link>
+            按钮 Button
           </MenuItem>
         </SubMenu>
       </Menu>

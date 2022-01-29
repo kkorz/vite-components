@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { Spin } from "@arco-design/web-react";
 import { RouteObject } from "react-router-dom";
 
-export function LazyElement({ element }) {
+export function LazyElement({ element }: any) {
   const LazyComponent = lazy(element);
   return (
     <Suspense fallback={<Spin dot />}>
